@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusTrack AI | Smart Student Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🎓 Campus<span>Track</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#about">About</a>
+        </div>
+
+        <button onclick="openLogin()">
+            Student Login
+        </button>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <span class="badge">
+                ✨ AI-Powered Student Information System
+            </span>
+
+            <h1>
+                Never Miss
+                <span>What Matters.</span>
+            </h1>
+
+            <p>
+                CampusTrack AI brings your missed lectures, upcoming
+                classes, assignments, exams, holidays and college
+                events into one simple dashboard.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#dashboard" class="primary-btn">
+                    🚀 Get Started
+                </a>
+
+                <a href="#features" class="secondary-btn">
+                    Explore Features
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dashboard Preview -->
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-header">
+
+                <div>
+                    <span class="small-title">STUDENT DASHBOARD</span>
+                    <h3>Good Morning, Khushdeep 👋</h3>
+                </div>
+
+                <div class="notification">
+                    🔔
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h4>📚 What Did I Miss?</h4>
+
+                <p>
+                    3 lectures missed this week
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h4>📅 What's Next?</h4>
+
+                <p>
+                    CN MST • Tomorrow
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h4>✅ What Do I Need To Do?</h4>
+
+                <p>
+                    4 pending academic tasks
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         WHAT DID I MISS?
+    ========================================== -->
+
+    <section class="missed-section" id="missed">
+
+        <div class="missed-heading">
+
+            <div>
+
+                <span class="small-title">
+                    RECOVER YOUR ACADEMICS
+                </span>
+
+                <h2>
+                    What Did I Miss?
+                </h2>
+
+                <p>
+                    Quickly understand what happened during your absence.
+                </p>
+
+            </div>
+
+
+            <div class="subject-selector">
+
+                <label for="subjectSelect">
+                    Select Subject
+                </label>
+
+                <select id="subjectSelect" onchange="showMissedTopics()">
+
+                    <option value="CN">
+                        Computer Networks
+                    </option>
+
+                    <option value="DAA">
+                        Design & Analysis of Algorithms
+                    </option>
+
+                    <option value="OS">
+                        Operating Systems
+                    </option>
+
+                    <option value="Web">
+                        Web Technology
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="missed-topics" id="missedTopics">
+
+            <div class="missed-topic-card">
+
+                <div class="topic-date">
+                    SEP 10
+                </div>
+
+                <div class="topic-info">
+
+                    <h3>
+                        OSI Model & Network Layers
+                    </h3>
+
+                    <p>
+                        Computer Networks • Lecture 12
+                    </p>
+
+                </div>
+
+                <span class="status missed-status">
+                    MISSED
+                </span>
+
+            </div>
+
+
+            <div class="missed-topic-card">
+
+                <div class="topic-date">
+                    SEP 11
+                </div>
+
+                <div class="topic-info">
+
+                    <h3>
+                        TCP/IP Protocol Suite
+                    </h3>
+
+                    <p>
+                        Computer Networks • Lecture 13
+                    </p>
+
+                </div>
+
+                <span class="status revision-status">
+                    REVISION
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         WHAT'S NEXT
+    ========================================== -->
+
+    <section class="next-section" id="next">
+
+        <div class="next-heading">
+
+            <div>
+
+                <span class="small-title">
+                    PLAN AHEAD
+                </span>
+
+                <h2>
+                    What's Next?
+                </h2>
+
+                <p>
+                    Know your upcoming academic activities before they happen.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="next-grid">
+
+
+            <!-- Upcoming Classes -->
+
+            <div class="next-panel">
+
+                <div class="panel-heading">
+
+                    <h3>
+                        📚 Upcoming Classes
+                    </h3>
+
+                    <span>
+                        THIS WEEK
+                    </span>
+
+                </div>
+                <div id="backendClasses"></div>
+
+                <div class="class-card">
+
+                    <div class="class-time">
+                        09:00
+                        <small>AM</small>
+                    </div>
+
+                    <div class="class-info">
+
+                        <h4>
+                            Design & Analysis of Algorithms
+                        </h4>
+
+                        <p>
+                            Room 204 • Dr. Sharma
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="class-card">
+
+                    <div class="class-time">
+                        11:00
+                        <small>AM</small>
+                    </div>
+
+                    <div class="class-info">
+
+                        <h4>
+                            Computer Networks
+                        </h4>
+
+                        <p>
+                            Room 302 • Prof. Singh
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="class-card">
+
+                    <div class="class-time">
+                        02:00
+                        <small>PM</small>
+                    </div>
+
+                    <div class="class-info">
+
+                        <h4>
+                            Web Technology
+                        </h4>
+
+                        <p>
+                            Lab 2 • Prof. Kaur
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Tests -->
+
+            <div class="next-panel">
+
+                <div class="panel-heading">
+
+                    <h3>
+                        📝 Upcoming Tests
+                    </h3>
+
+                    <span>
+                        IMPORTANT
+                    </span>
+
+                </div>
+
+                <div id="backendTests"></div>
+                <div class="test-card">
+
+                    <div class="test-date">
+
+                        <strong>
+                            18
+                        </strong>
+
+                        <small>
+                            SEP
+                        </small>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Computer Networks MST
+                        </h4>
+
+                        <p>
+                            Syllabus: Unit 1 & Unit 2
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="test-card">
+
+                    <div class="test-date">
+
+                        <strong>
+                            22
+                        </strong>
+
+                        <small>
+                            SEP
+                        </small>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            DAA Class Test
+                        </h4>
+
+                        <p>
+                            Syllabus: Searching & Sorting
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="test-card">
+
+                    <div class="test-date">
+
+                        <strong>
+                            05
+                        </strong>
+
+                        <small>
+                            OCT
+                        </small>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Mid Semester Exams
+                        </h4>
+
+                        <p>
+                            Check complete exam schedule
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Academic Progress -->
+
+        <div class="progress-panel">
+
+            <div class="panel-heading">
+
+                <h3>
+                    📊 Academic Progress
+                </h3>
+
+                <span>
+                    3RD SEMESTER
+                </span>
+
+            </div>
+
+
+            <div class="progress-item">
+
+                <div class="progress-info">
+
+                    <span>
+                        Computer Networks
+                    </span>
+
+                    <strong>
+                        72%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:72%">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-item">
+
+                <div class="progress-info">
+
+                    <span>
+                        DAA
+                    </span>
+
+                    <strong>
+                        65%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:65%">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-item">
+
+                <div class="progress-info">
+
+                    <span>
+                        Operating Systems
+                    </span>
+
+                    <strong>
+                        78%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:78%">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-item">
+
+                <div class="progress-info">
+
+                    <span>
+                        Web Technology
+                    </span>
+
+                    <strong>
+                        84%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:84%">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         WHAT DO I NEED TO DO?
+    ========================================== -->
+
+    <section class="tasks-section" id="tasks">
+
+        <div class="tasks-heading">
+
+            <div>
+
+                <span class="small-title">
+                    STAY ORGANIZED
+                </span>
+
+                <h2>
+                    What Do I Need To Do?
+                </h2>
+
+                <p>
+                    Your important academic tasks, assignments and deadlines.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-task-btn"
+                onclick="addNewTask()">
+
+                + Add Task
+
+            </button>
+
+        </div>
+
+
+        <!-- Task Summary -->
+
+        <div class="task-summary">
+
+            <div class="task-summary-card">
+
+                <span>📋</span>
+
+                <div>
+
+                    <strong>
+                        4
+                    </strong>
+
+                    <p>
+                        Pending Tasks
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="task-summary-card">
+
+                <span>🔥</span>
+
+                <div>
+
+                    <strong>
+                        2
+                    </strong>
+
+                    <p>
+                        High Priority
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="task-summary-card">
+
+                <span>✅</span>
+
+                <div>
+
+                    <strong>
+                        8
+                    </strong>
+
+                    <p>
+                        Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Task List -->
+
+        <div class="task-list">
+
+
+            <div class="full-task-card">
+
+                <div class="task-check">
+
+                    <input
+                        type="checkbox"
+                        onchange="completeTask(this)">
+
+                </div>
+
+
+                <div class="full-task-info">
+
+                    <div class="task-type">
+                        ASSIGNMENT
+                    </div>
+
+                    <h3>
+                        DAA Assignment
+                    </h3>
+
+                    <p>
+                        Complete sorting algorithm questions.
+                    </p>
+
+                </div>
+
+
+                <div class="task-deadline urgent">
+
+                    <strong>
+                        SEP 17
+                    </strong>
+
+                    <span>
+                        2 days left
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="full-task-card">
+
+                <div class="task-check">
+
+                    <input
+                        type="checkbox"
+                        onchange="completeTask(this)">
+
+                </div>
+
+
+                <div class="full-task-info">
+
+                    <div class="task-type">
+                        PROJECT
+                    </div>
+
+                    <h3>
+                        DBMS Gaming Tournament Project
+                    </h3>
+
+                    <p>
+                        Complete database design and documentation.
+                    </p>
+
+                </div>
+
+
+                <div class="task-deadline">
+
+                    <strong>
+                        SEP 20
+                    </strong>
+
+                    <span>
+                        5 days left
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="full-task-card">
+
+                <div class="task-check">
+
+                    <input
+                        type="checkbox"
+                        onchange="completeTask(this)">
+
+                </div>
+
+
+                <div class="full-task-info">
+
+                    <div class="task-type">
+                        EXAM PREPARATION
+                    </div>
+
+                    <h3>
+                        CN MST Preparation
+                    </h3>
+
+                    <p>
+                        Revise Unit 1 and Unit 2.
+                    </p>
+
+                </div>
+
+
+                <div class="task-deadline">
+
+                    <strong>
+                        SEP 18
+                    </strong>
+
+                    <span>
+                        3 days left
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="full-task-card">
+
+                <div class="task-check">
+
+                    <input
+                        type="checkbox"
+                        onchange="completeTask(this)">
+
+                </div>
+
+
+                <div class="full-task-info">
+
+                    <div class="task-type">
+                        ASSIGNMENT
+                    </div>
+
+                    <h3>
+                        Web Technology Assignment
+                    </h3>
+
+                    <p>
+                        Build a responsive webpage using HTML and CSS.
+                    </p>
+
+                </div>
+
+
+                <div class="task-deadline">
+
+                    <strong>
+                        SEP 23
+                    </strong>
+
+                    <span>
+                        8 days left
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p
+            class="task-message"
+            id="taskMessage">
+
+            Complete your tasks to keep your academic progress on track.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================================
+         COLLEGE CALENDAR
+    ========================================== -->
+
+    <section class="calendar-section" id="calendar">
+
+        <div class="calendar-heading">
+
+            <div>
+
+                <span class="small-title">
+                    NEVER MISS AN IMPORTANT DATE
+                </span>
+
+                <h2>
+                    Smart College Calendar
+                </h2>
+
+                <p>
+                    Exams, assignments, holidays and college events in one place.
+                </p>
+
+            </div>
+            <div id="backendEvents"></div>
+
+        </div>
+
+
+        <div class="calendar-list">
+
+
+            <div class="calendar-card">
+
+                <div class="calendar-date">
+
+                    <strong>
+                        17
+                    </strong>
+
+                    <span>
+                        SEP
+                    </span>
+
+                </div>
+
+                <div class="calendar-info">
+
+                    <span class="calendar-type">
+                        ASSIGNMENT
+                    </span>
+
+                    <h3>
+                        DAA Assignment Submission
+                    </h3>
+
+                    <p>
+                        Submit through the student portal.
+                    </p>
+
+                </div>
+
+                <span class="calendar-status">
+                    Due Soon
+                </span>
+
+            </div>
+
+
+
+            <div class="calendar-card">
+
+                <div class="calendar-date">
+
+                    <strong>
+                        18
+                    </strong>
+
+                    <span>
+                        SEP
+                    </span>
+
+                </div>
+
+                <div class="calendar-info">
+
+                    <span class="calendar-type">
+                        MST
+                    </span>
+
+                    <h3>
+                        Computer Networks MST
+                    </h3>
+
+                    <p>
+                        Unit 1 and Unit 2
+                    </p>
+
+                </div>
+
+                <span class="calendar-status">
+                    Important
+                </span>
+
+            </div>
+
+
+
+            <div class="calendar-card exam-card">
+
+                <div class="calendar-date">
+
+                    <strong>
+                        05
+                    </strong>
+
+                    <span>
+                        OCT
+                    </span>
+
+                </div>
+
+                <div class="calendar-info">
+
+                    <span class="calendar-type">
+                        EXAM
+                    </span>
+
+                    <h3>
+                        Mid Semester Examination
+                    </h3>
+
+                    <p>
+                        Detailed schedule will be available soon.
+                    </p>
+
+                </div>
+
+                <span class="calendar-status">
+                    Upcoming
+                </span>
+
+            </div>
+
+
+
+            <div class="calendar-card holiday-card">
+
+                <div class="calendar-date">
+
+                    <strong>
+                        02
+                    </strong>
+
+                    <span>
+                        OCT
+                    </span>
+
+                </div>
+
+                <div class="calendar-info">
+
+                    <span class="calendar-type">
+                        HOLIDAY
+                    </span>
+
+                    <h3>
+                        Gandhi Jayanti
+                    </h3>
+
+                    <p>
+                        College will remain closed.
+                    </p>
+
+                </div>
+
+                <span class="calendar-status">
+                    Holiday
+                </span>
+
+            </div>
+
+
+
+            <div class="calendar-card event-card">
+
+                <div class="calendar-date">
+
+                    <strong>
+                        12
+                    </strong>
+
+                    <span>
+                        OCT
+                    </span>
+
+                </div>
+
+                <div class="calendar-info">
+
+                    <span class="calendar-type">
+                        COLLEGE EVENT
+                    </span>
+
+                    <h3>
+                        Annual Tech Fest
+                    </h3>
+
+                    <p>
+                        Technology, innovation and student projects.
+                    </p>
+
+                </div>
+
+                <span class="calendar-status">
+                    Event
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         AI ASSISTANT
+    ========================================== -->
+
+    <section class="ai-section" id="assistant">
+
+        <div class="ai-heading">
+
+            <span class="small-title">
+                YOUR PERSONAL ACADEMIC ASSISTANT
+            </span>
+
+            <h2>
+                🤖 CampusTrack AI Assistant
+            </h2>
+
+            <p>
+                Ask questions about your lectures, tasks, exams and schedule.
+            </p>
+
+        </div>
+
+
+        <div class="ai-box">
+
+
+            <div class="ai-header">
+
+                <div class="ai-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        CampusTrack AI
+                    </h3>
+
+                    <p>
+                        Always ready to help you plan your academics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="chat-messages"
+                id="chatMessages">
+
+                <div class="ai-message">
+
+                    👋 Hi Khushdeep! I'm your CampusTrack AI assistant.
+                    Ask me what you missed, what's next, or what you
+                    should do today.
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-questions">
+
+                <button onclick="askAI('missed')">
+                    📚 What did I miss?
+                </button>
+
+                <button onclick="askAI('next')">
+                    📅 What's next?
+                </button>
+
+                <button onclick="askAI('tasks')">
+                    ✅ What should I do today?
+                </button>
+
+                <button onclick="askAI('exam')">
+                    📝 Upcoming exams?
+                </button>
+
+            </div>
+
+
+            <div class="ai-input">
+
+                <input
+                    type="text"
+                    id="aiInput"
+                    placeholder="Ask CampusTrack AI..."
+                    onkeydown="handleAIEnter(event)">
+
+                <button onclick="sendAIMessage()">
+                    Send ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         STUDENT PROFILE
+    ========================================== -->
+
+    <section class="profile-section" id="about">
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                K
+            </div>
+
+            <div class="profile-info">
+
+                <span class="small-title">
+                    STUDENT PROFILE
+                </span>
+
+                <h2>
+                    Khushdeep
+                </h2>
+
+                <p>
+                    B.Tech CSE • 3rd Semester
+                </p>
+
+            </div>
+
+            <div class="profile-status">
+                ● Active Student
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FEATURES
+    ========================================== -->
+
+    <section class="features" id="features">
+
+        <span
+            class="small-title"
+            style="display:block;text-align:center;">
+
+            WHY CAMPUSTRACK AI?
+
+        </span>
+
+        <h2>
+            Everything A Student Needs
+        </h2>
+
+        <p>
+            One intelligent platform for your complete academic journey.
+        </p>
+
+
+        <div class="feature-container">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Missed Lecture Recovery
+                </h3>
+
+                <p>
+                    Quickly find topics, lectures and important information
+                    you missed during your absence.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Smart Schedule
+                </h3>
+
+                <p>
+                    See upcoming classes, MSTs, examinations, holidays
+                    and college events in one place.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI Academic Assistant
+                </h3>
+
+                <p>
+                    Ask questions in natural language and get personalized
+                    academic guidance.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ✅
+                </div>
+
+                <h3>
+                    Task Management
+                </h3>
+
+                <p>
+                    Track assignments, projects and preparation tasks
+                    without missing deadlines.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Academic Progress
+                </h3>
+
+                <p>
+                    Monitor subject-wise progress and understand where
+                    you need more attention.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔔
+                </div>
+
+                <h3>
+                    Important Alerts
+                </h3>
+
+                <p>
+                    Keep track of important deadlines, tests, exams
+                    and college announcements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         STUDENT DASHBOARD
+    ========================================== -->
+
+    <section
+        class="student-dashboard"
+        id="dashboard">
+
+        <div class="dashboard-title">
+
+            <div>
+
+                <span class="small-title">
+                    PERSONALIZED OVERVIEW
+                </span>
+
+                <h2>
+                    Student Dashboard
+                </h2>
+
+                <p>
+                    Your academic information at a glance.
+                </p>
+
+            </div>
+
+
+            <div class="date-box">
+                📅 September 2026
+            </div>
+
+        </div>
+
+
+
+        <!-- Summary Cards -->
+
+        <div class="summary-container">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📚
+                </div>
+
+                <h3 id="missedLectures">
+    3
+</h3>
+<p>
+    Missed Lectures
+</p>
+                <span>
+                    View Details →
+                </span>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📅
+                </div>
+
+               <h3 id="upcomingActivities">
+    4
+</h3>
+<p>
+    Upcoming Activities
+</p>
+
+                <span>
+                    View Schedule →
+                </span>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    ✅
+                </div>
+
+                <h3 id="pendingTasks">
+    4
+</h3>
+<p>
+    Pending Tasks
+</p>
+
+                <span>
+                    View Tasks →
+                </span>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📊
+                </div>
+
+                <h3 id="academicProgress">
+    74%
+</h3>
+<p>
+    Academic Progress
+</p>
+
+                <span>
+                    View Progress →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Dashboard Grid -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- Missed Lectures -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+
+                    <h3>
+                        📚 Missed Lectures
+                    </h3>
+
+                    <a href="#missed">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="lecture-item">
+
+                    <div>
+
+                        <h4>
+                            OSI Model
+                        </h4>
+
+                        <p>
+                            Computer Networks
+                        </p>
+
+                    </div>
+
+                    <span class="missed-label">
+                        MISSED
+                    </span>
+
+                </div>
+
+
+                <div class="lecture-item">
+
+                    <div>
+
+                        <h4>
+                            Divide & Conquer
+                        </h4>
+
+                        <p>
+                            DAA
+                        </p>
+
+                    </div>
+
+                    <span class="missed-label">
+                        MISSED
+                    </span>
+
+                </div>
+
+
+                <div class="lecture-item">
+
+                    <div>
+
+                        <h4>
+                            Process Management
+                        </h4>
+
+                        <p>
+                            Operating Systems
+                        </p>
+
+                    </div>
+
+                    <span class="missed-label">
+                        MISSED
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Upcoming -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+
+                    <h3>
+                        📅 Upcoming
+                    </h3>
+
+                    <a href="#next">
+                        View Schedule
+                    </a>
+
+                </div>
+
+
+                <div class="next-item">
+
+                    <div>
+
+                        <h4>
+                            CN MST
+                        </h4>
+
+                        <p>
+                            Computer Networks
+                        </p>
+
+                    </div>
+
+                    <span class="time">
+                        SEP 18
+                    </span>
+
+                </div>
+
+
+                <div class="next-item">
+
+                    <div>
+
+                        <h4>
+                            DAA Test
+                        </h4>
+
+                        <p>
+                            Algorithms
+                        </p>
+
+                    </div>
+
+                    <span class="time">
+                        SEP 22
+                    </span>
+
+                </div>
+
+
+                <div class="next-item">
+
+                    <div>
+
+                        <h4>
+                            Mid Semester Exams
+                        </h4>
+
+                        <p>
+                            All Subjects
+                        </p>
+
+                    </div>
+
+                    <span class="time">
+                        OCT 05
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Tasks -->
+
+        <div class="dashboard-panel tasks-panel">
+
+            <div class="panel-heading">
+
+                <h3>
+                    ✅ Priority Tasks
+                </h3>
+
+                <a href="#tasks">
+                    View All
+                </a>
+
+            </div>
+
+
+            <div class="task-item">
+
+                <div>
+
+                    <h4>
+                        DAA Assignment
+                    </h4>
+
+                    <p>
+                        Complete and submit assignment.
+                    </p>
+
+                </div>
+
+                <span class="deadline urgent">
+                    2 DAYS
+                </span>
+
+            </div>
+
+
+            <div class="task-item">
+
+                <div>
+
+                    <h4>
+                        CN MST Preparation
+                    </h4>
+
+                    <p>
+                        Revise Unit 1 & Unit 2.
+                    </p>
+
+                </div>
+
+                <span class="deadline">
+                    3 DAYS
+                </span>
+
+            </div>
+
+
+            <div class="task-item">
+
+                <div>
+
+                    <h4>
+                        DBMS Project
+                    </h4>
+
+                    <p>
+                        Complete project documentation.
+                    </p>
+
+                </div>
+
+                <span class="deadline">
+                    5 DAYS
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AI Dashboard Box -->
+
+        <div class="ai-box">
+
+            <div class="ai-content">
+
+                <div class="ai-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        Need help planning your day?
+                    </h3>
+
+                    <p>
+                        Ask CampusTrack AI what you should focus on first.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button onclick="openAssistant()">
+                Ask AI
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FINAL CTA
+    ========================================== -->
+
+    <section class="final-section">
+
+        <div class="final-card">
+
+            <span class="small-title">
+                CAMPUS TRACK AI
+            </span>
+
+            <h2>
+                Never Miss What Matters.
+            </h2>
+
+            <p>
+                Turn scattered college information into one
+                personalized academic action plan.
+            </p>
+
+            <button onclick="openLogin()">
+                Get Started 🚀
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            🎓 Campus<span>Track</span>
+        </div>
+
+        <p>
+            Smart Academic Recovery & Student Information System
+        </p>
+
+        <p>
+            © 2026 CampusTrack AI • Hackathon Project
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         LOGIN MODAL
+    ========================================== -->
+
+    <div
+        class="login-modal"
+        id="loginModal">
+
+        <div class="login-box">
+
+            <button
+                class="close-login"
+                onclick="closeLogin()">
+
+                ×
+
+            </button>
+
+
+            <div class="login-icon">
+                🎓
+            </div>
+
+            <h2>
+                Student Login
+            </h2>
+
+            <p>
+                Enter your details to access CampusTrack AI.
+            </p>
+
+
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter your name">
+
+
+            <input
+                type="text"
+                id="studentID"
+                placeholder="Enter Student ID">
+
+
+            <button
+                class="login-submit"
+                onclick="studentLogin()">
+
+                Login to Dashboard
+
+            </button>
+
+
+            <p
+                class="login-message"
+                id="loginMessage">
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
